@@ -9,7 +9,7 @@ class ProductoSerializer(serializers.Serializer):
     imagen = serializers.CharField()
     class Meta:
         model = Producto
-        fields = ('codigo', 'descripcion', 'precio')
+        fields = ('codigo', 'descripcion', 'precio','imagen')
 
     def create(self, validated_data):
         """
@@ -28,7 +28,7 @@ class ProductoSerializer(serializers.Serializer):
         instance.save()
         return instance
 
-# class ProductoSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Producto
-#         fields = ('codigo', 'descripcion', 'precio')
+class ProductoSerializer(serializers.ModelSerializer):
+     class Meta:
+         model = Producto
+         fields = ('codigo', 'descripcion', 'precio','imagen')

@@ -38,7 +38,8 @@ def producto_detail(request, pk):
     Retrieve, update or delete a serie.
     """
     try:
-        producto = producto.objects.get(pk=pk)
+        #producto = producto.objects.get(pk=pk)
+        producto = Producto.objects.get(codigo=pk)
     except Producto.DoesNotExist:
         return HttpResponse(status=404)
 
