@@ -6,6 +6,7 @@ class ProductoSerializer(serializers.Serializer):
     codigo = serializers.IntegerField(read_only=True)
     descripcion = serializers.CharField()
     precio = serializers.DecimalField(max_digits=5, decimal_places=2)
+    imagen = serializers.CharField()
     class Meta:
         model = Producto
         fields = ('codigo', 'descripcion', 'precio')
@@ -23,6 +24,7 @@ class ProductoSerializer(serializers.Serializer):
         instance.codigo = validated_data.get('codigo', instance.codigo)
         instance.descripcion= validated_data.get('descripcion', instance.descripcion)
         instance.precio= validated_data.get('precio', instance.precio)
+        instance.imagen= validated_data.get('imagen', instance.imagen)
         instance.save()
         return instance
 
